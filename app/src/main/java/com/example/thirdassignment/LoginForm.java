@@ -1,12 +1,12 @@
 package com.example.thirdassignment;
 
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +37,7 @@ public class LoginForm extends AppCompatActivity {
                     if(user.equals("admin")&&pass.equals("admin")){
                         Intent intent= new Intent(LoginForm.this,MainActivity.class);
                         startActivity(intent);
-                        //Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginForm.this, "Login Success", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -45,9 +45,11 @@ public class LoginForm extends AppCompatActivity {
                 {
                     if(user.isEmpty()){
                         username.setError("Enter User Name");
+                        Toast.makeText(LoginForm.this, "Eithr username or password is invalid", Toast.LENGTH_LONG).show();
                     }
                     if(pass.isEmpty()){
-                        username.setError("Enter Password");
+                        password.setError("Enter Password");
+                        Toast.makeText(LoginForm.this, "Either username or password is invalid", Toast.LENGTH_LONG).show();
                     }
                 }
             }
